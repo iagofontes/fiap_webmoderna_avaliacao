@@ -1,7 +1,13 @@
 import { NgModule } from '@angular/core';
-import { MatToolbar, MatToolbarModule, MatIconModule, MatListModule } from '@angular/material';
+import { MatToolbar, MatToolbarModule, 
+    MatIconModule, MatListModule, 
+    MatFormFieldModule, 
+    MatInputModule, 
+    MatExpansionModule,
+    MatSnackBarModule } from '@angular/material';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatButtonModule } from '@angular/material/button';
+import { MatDividerModule } from '@angular/material/divider';
 
 @NgModule({
   declarations: [
@@ -11,13 +17,25 @@ import { MatButtonModule } from '@angular/material/button';
       MatToolbarModule,
       MatSidenavModule,
       MatIconModule,
-      MatListModule
+      MatListModule,
+      MatButtonModule,
+      MatDividerModule,
+      MatFormFieldModule, 
+      MatInputModule,
+      MatSnackBarModule,
+      MatExpansionModule
   ],
   exports: [
       MatToolbarModule,
       MatSidenavModule,
       MatIconModule,
-      MatListModule
+      MatListModule,
+      MatButtonModule,
+      MatDividerModule,
+      MatFormFieldModule, 
+      MatInputModule,
+      MatSnackBarModule,
+      MatExpansionModule
   ]
 })
 export class MaterialModule { }

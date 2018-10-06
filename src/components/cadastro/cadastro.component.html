@@ -1,0 +1,73 @@
+<h3>Pessoas</h3>
+<mat-divider style="margin-bottom: 1em;"></mat-divider>
+<mat-accordion style="padding-top: 5%;">
+    <mat-expansion-panel>
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                Formulário
+            </mat-panel-title>
+            <mat-panel-description>
+                Cadastro de novas pessoas
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+        <form>
+            <div class="row">
+                <mat-form-field style="width: 40%;margin-left:5%;">
+                    <input matInput 
+                    placeholder="Nome" type="text" 
+                    matAutosize="true"
+                    name="pessoaNome"
+                    [(ngModel)]="pessoaSelecionada.nome">
+                </mat-form-field>
+                <mat-form-field style="width: 40%; margin-left:10%; margin-right:5%;">
+                    <input matInput 
+                        placeholder="E-mail" type="text" 
+                        matAutosize="true"
+                        name="pessoaEmail"
+                        [(ngModel)]="pessoaSelecionada.email">
+                </mat-form-field>
+            </div>
+            <div class="row">
+                <mat-form-field style="width: 40%;margin-left:5%;">
+                    <input matInput 
+                        placeholder="CPF" type="text" 
+                        matAutosize="true"
+                        name="pessoaCpf"
+                        [(ngModel)]="pessoaSelecionada.cpf">
+                </mat-form-field>
+                <mat-form-field style="width: 40%; margin-left:10%; margin-right:5%;">
+                    <input matInput 
+                        placeholder="Telefone" type="text" 
+                        matAutosize="true"
+                        name="pessoaTelefone"
+                        [(ngModel)]="pessoaSelecionada.telefone">
+                </mat-form-field>
+            </div>
+            <div class="row" style="padding-left: 75%;">
+                <button mat-stroked-button 
+                    color="warn" (click)="removerPessoa(pessoaSelecionada);">Remover</button>
+                <button mat-stroked-button 
+                    color="primary"
+                    (click)="salvarNovaPessoa(pessoaSelecionada);"
+                    style="margin-left: 5%;">Salvar</button>
+            </div>
+        </form>
+    </mat-expansion-panel>
+</mat-accordion>
+<mat-list>
+    <h3 mat-subheader>Listagem</h3>
+    <mat-form-field style="width: 94%; margin-left:6%;">
+        <input matInput 
+            placeholder="Filtrar" #nomeFilter 
+            (keyup)="0">
+    </mat-form-field>
+    <mat-list-item *ngFor="let pessoa of pessoas | sublista:nomeFilter.value" 
+        (click)="carregarCampos(pessoa);">
+        <mat-icon mat-list-icon>people</mat-icon>
+        <h3 mat-line> <b>{{pessoa.nome}}</b> </h3>
+        <p mat-line> {{pessoa.email}} </p>
+        <p mat-line> {{pessoa.cpf}} </p>
+        <p mat-line> {{pessoa.telefone}} </p>
+        <mat-divider></mat-divider>
+    </mat-list-item>
+</mat-list>
